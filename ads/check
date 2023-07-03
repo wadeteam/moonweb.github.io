@@ -18,8 +18,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
   iframe.onload = () => {
     setTimeout(() => {
-      if (isElementOverlapping(iframe)) {
-        iframe.src = 'https://moon-bot.eu/ads/error.png';
+      const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+      const iframeBody = iframeDocument.body;
+
+      if (isElementOverlapping(iframeBody)) {
+        iframeDocument.documentElement.innerHTML = '<h1>The iframe is overlapped.</h1>';
       }
     }, 100);
   };
