@@ -1,22 +1,26 @@
 function isElementOverlapping(element) {
   const rect1 = element.getBoundingClientRect();
-  
+
   for (const el of document.elementsFromPoint(rect1.left, rect1.top)) {
     if (el !== element && el.getBoundingClientRect().right >= rect1.left &&
-        el.getBoundingClientRect().left <= rect1.right &&
-        el.getBoundingClientRect().bottom >= rect1.top &&
-        el.getBoundingClientRect().top <= rect1.bottom) {
+      el.getBoundingClientRect().left <= rect1.right &&
+      el.getBoundingClientRect().bottom >= rect1.top &&
+      el.getBoundingClientRect().top <= rect1.bottom) {
       return true;
     }
   }
-  
+
   return false;
 }
 
 window.addEventListener('DOMContentLoaded', () => {
   const iframe = document.getElementById('moonds');
 
-  if (isElementOverlapping(iframe)) {
-    iframe.src = 'https://moon-bot.eu/ads/error.png';
-  }
+  iframe.onload = () => {
+    setTimeout(() => {
+      if (isElementOverlapping(iframe)) {
+        iframe.src = 'https://moon-bot.eu/ads/error.png';
+      }
+    }, 100);
+  };
 });
