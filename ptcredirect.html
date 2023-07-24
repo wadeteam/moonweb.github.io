@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loading..</title>
+</head>
+<body>
+    <script>
+       
+        function redirectToRandomLink() {
+            var url = "http://176.102.66.141:4646/get_random_link";
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", url, true);
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        var response = JSON.parse(xhr.responseText);
+                        var randomLink = response.link;
+
+                        // Redirect the user to the random link
+                        window.location.href = randomLink;
+                    } else {
+                        console.error("Failed to fetch the random link.");
+                    }
+                }
+            };
+
+            xhr.send();
+        }
+
+        // Call the function when the page loads
+        redirectToRandomLink();
+    </script>
+</body>
+</html>
