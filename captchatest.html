@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test reCAPTCHA</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      font-family: Arial, sans-serif;
+    }
+
+    .popup-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .popup {
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+  </style>
+  <!-- Add the reCAPTCHA script -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+  <div class="popup-container">
+    <div class="popup">
+      <!-- Your content and form can go here -->
+      <h2>Please verify yourself</h2>
+      <form action="/submit" method="POST">
+        <!-- Add your form fields here -->
+        <!-- Replace YOUR_RECAPTCHA_SITE_KEY with your actual reCAPTCHA site key -->
+        <div class="g-recaptcha" data-sitekey="6Lc6yE4nAAAAAPo4k69OaFr06bXx0EOlVhYDEa_0"></div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
