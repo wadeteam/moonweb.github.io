@@ -20,13 +20,13 @@
       }
 
       // Make the HTTP GET request with the id parameter
-      fetch(`https://moon.terside.tk/get_redirect?id=${id}`)
+      fetch(`https://moo.terside.tk/get_redirect?id=${id}`)
         .then(response => response.text())
         .then(data => {
-          // Redirect to the website from the API response
+          // Parse the API response as a URL and redirect to it
           const redirectURL = data.trim();
           if (redirectURL) {
-            window.location.href = redirectURL; // Redirect to the URL from the API response
+            window.location.href = new URL(redirectURL).href; // Redirect to the URL from the API response
           } else {
             console.error('No redirect URL found in the API response.');
           }
