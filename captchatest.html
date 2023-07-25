@@ -4,12 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Testovací stránka s přesměrováním</title>
-</head>
-<body>
-  <h1>Vítejte na Testovací Stránce!</h1>
-  <p>Zde můžete umístit obsah vaší stránky.</p>
 
   <script>
+
+function Redirect(url) {
+            location.href=url;
+}
+
+
     document.addEventListener("DOMContentLoaded", function() {
       // Get the id parameter from the URL
       const urlParams = new URLSearchParams(window.location.search);
@@ -26,7 +28,7 @@
           // Check if the API response contains the 'redirect' field
           if (data.redirect) {
             // Redirect to the website from the API response
-            window.location.href = data.redirect;
+            Redirect(data.redirect)
           } else {
             console.error('No redirect URL found in the API response.');
           }
@@ -36,5 +38,16 @@
         });
     });
   </script>
+
+
+
+
+
+</head>
+<body>
+  <h1>Vítejte na Testovací Stránce!</h1>
+  <p>Zde můžete umístit obsah vaší stránky.</p>
+
+  
 </body>
 </html>
