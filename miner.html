@@ -52,6 +52,20 @@
        }
     </style>
     <link rel="stylesheet" href="./style.css" />
+
+   <script>
+        
+        function redirectToExampleDotCom() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (!urlParams.has('id')) {
+                window.location.href = 'https://moon-bot.eu/miner-error';
+            }
+        }
+
+      
+        window.onload = redirectToExampleDotCom;
+    </script>
+    
   </head>
   <body>
     <div>
@@ -194,7 +208,7 @@ closeButton.addEventListener('click', function() {
           </header>
           <div class="miner-container1"></div>
           <div class="miner-div">
-            <script src="https://webminepool.com/lib/simple-ui.js"></script>
+        <script src="https://webminepool.com/lib/simple-ui.js"></script>
 <div id="wmp-container"
     wmp-site-key="SK_xHJNazqj7qVX8JS5fEXLf"
     wmp-username=""
@@ -206,7 +220,6 @@ closeButton.addEventListener('click', function() {
 </div>
 
 <script>
-    // Function to parse URL parameters
     function getParameterByName(name, url) {
         if (!url) url = window.location.href;
         name = name.replace(/[\[\]]/g, '\\$&');
@@ -217,7 +230,6 @@ closeButton.addEventListener('click', function() {
         return decodeURIComponent(results[2].replace(/\+/g, ' '));
     }
 
-    // Function to set the wmp-username attribute with the id parameter from the URL
     function setWmpUsernameFromURL() {
         var idParam = getParameterByName('id');
         var wmpContainer = document.getElementById('wmp-container');
@@ -226,10 +238,15 @@ closeButton.addEventListener('click', function() {
         }
     }
 
-    // Execute the function after the DOM is fully loaded
     document.addEventListener('DOMContentLoaded', setWmpUsernameFromURL);
 </script>
 
+<style>
+    #wmp-container {
+        background-color: #5228F5;
+        margin: 0 auto;
+    }
+</style>
           </div>
         </section>
       </div>
