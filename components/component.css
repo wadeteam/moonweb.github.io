@@ -1,0 +1,8 @@
+.component-container {
+  display: flex;
+  position: relative;
+}
+.component-iframe {
+  width: auto;
+  height: 100%;
+}
