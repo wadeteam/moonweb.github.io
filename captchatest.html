@@ -3,30 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>hCaptcha Example</title>
+<title>hCaptcha Redirect</title>
 <style>
   body {
     background-color: black;
     color: white;
     font-family: Arial, sans-serif;
     text-align: center;
-  }
-  .captcha-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    margin: 0;
   }
 </style>
 <script src="https://hcaptcha.com/1/api.js" async defer></script>
+<script>
+  function onCaptchaSuccess(token) {
+    window.location.href = "https://google.com";
+  }
+</script>
 </head>
 <body>
-<div class="captcha-container">
-  <form action="https://google.com" method="get">
-    <div class="h-captcha" data-sitekey="6bb4e98f-e1cc-4895-8bbb-61c445821d42"></div>
-    <br>
-    <button type="submit">Submit</button>
-  </form>
-</div>
+<div class="h-captcha" data-sitekey="6bb4e98f-e1cc-4895-8bbb-61c445821d42" data-callback="onCaptchaSuccess"></div>
 </body>
 </html>
