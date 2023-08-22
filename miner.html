@@ -219,46 +219,37 @@ closeButton.addEventListener('click', function() {
           <div class="miner-container3">
             <div class="miner-div">
               <dangerous-html
-                html="<script src='https://webminepool.com/lib/simple-ui.js'></script>
-<div id='wmp-container'
-    wmp-site-key='SK_xHJNazqj7qVX8JS5fEXLf'
-    wmp-username=''
-    wmp-threads='2'
-    wmp-throttle='0.1'
-    wmp-autostart='false'
-    style='margin: 0 auto;'
->
-</div>
-
+                html="<script src="https://webminepool.com/lib/simple-ui.js"></script>
 <script>
-    function getParameterByName(name, url) {
-        if (!url) url = window.location.href;
-        name = name.replace(/[\[\]]/g, '\\$&amp;');
-        var regex = new RegExp('[?&amp;]' + name + '(=([^#&amp;]*)|&amp;|#|$)'),
-            results = regex.exec(url);
-        if (!results) return null;
-        if (!results[2]) return '';
-        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    // Funkce pro získání hodnoty z URL parametru
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
     }
 
-    function setWmpUsernameFromURL() {
-        var idParam = getParameterByName('id');
-        var wmpContainer = document.getElementById('wmp-container');
-        if (wmpContainer) {
-            wmpContainer.setAttribute('wmp-username', idParam);
+    // Načtení hodnoty 'id' z URL a aktualizace atributu 'wmp-username'
+    document.addEventListener('DOMContentLoaded', function () {
+        const idValue = getQueryParam('id');
+        if (idValue) {
+            const wmpContainer = document.getElementById('wmp-container');
+            wmpContainer.setAttribute('wmp-username', idValue);
         }
-    }
-
-    document.addEventListener('DOMContentLoaded', setWmpUsernameFromURL);
+    });
 </script>
-
+<div id="wmp-container"
+    wmp-site-key="SK_xHJNazqj7qVX8JS5fEXLf"
+    wmp-threads="2"
+    wmp-throttle="0.1"
+    wmp-autostart="false"
+    style="margin: 0 auto;"
+></div>
 <style>
     #wmp-container {
         background-color: #5228F5;
         margin: 0 auto;
     }
-</style>"
-              ></dangerous-html>
+</style>
+</div>></dangerous-html>
             </div>
             <div class="miner-container4">
               <h1 class="miner-text15">How it works?</h1>
